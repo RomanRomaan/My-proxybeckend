@@ -9,6 +9,7 @@ app.use(express.json());
 const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwZzjfv8iH_nf58SV8t1DK6QUeRFmcb4mb_hvC2zJY6cKLueKvSnUKOjW5nEVjNwfg/exec';
 
 app.post('/api/submit', async (req, res) => {
+    console.log('Got POST request at /api/submit with body:', req.body);  // Добавь лог для дебага
     try {
         const response = await fetch(GOOGLE_SCRIPT_URL, {
             method: 'POST',

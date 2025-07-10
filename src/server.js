@@ -13,19 +13,24 @@ app.get('/', (req, res) => {
 });
 
 app.post('/api/submit', async (req, res) => {
-    console.log('POST /api/submit', req.body);
+    console.log('POST /api/submit:', req.body); // <-- должно появляться в логах Render
+    res.json({ ok: true, echo: req.body }); // Временно так
+    return; // Раскомментируй, чтобы проверить, что POST реально работает
+    // Всё, что ниже временно закомментируй
+    /*
     try {
-        const response = await fetch(GOOGLE_SCRIPT_URL, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(req.body),
-        });
-        const data = await response.json();
-        res.status(200).json(data);
+      const response = await fetch(GOOGLE_SCRIPT_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(req.body),
+      });
+      const data = await response.json();
+      res.status(200).json(data);
     } catch (err) {
-        console.error('Proxy error:', err);
-        res.status(500).json({ error: 'Proxy failed', details: err.message });
+      console.error('Proxy error:', err);
+      res.status(500).json({ error: 'Proxy failed', details: err.message });
     }
+    */
 });
 
 const PORT = process.env.PORT || 3001;

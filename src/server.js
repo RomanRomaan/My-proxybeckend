@@ -26,3 +26,7 @@ app.post('/api/submit', async (req, res) => {
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => console.log(`Proxy server running on port ${PORT}`));
+app.get('/', (req, res) => {
+    console.log('GET / received');
+    res.send('Hello from proxy server!');
+});

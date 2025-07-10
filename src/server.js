@@ -9,7 +9,6 @@ app.use(express.json());
 const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwZzjfv8iH_nf58SV8t1DK6QUeRFmcb4mb_hvC2zJY6cKLueKvSnUKOjW5nEVjNwfg/exec';
 
 app.get('/', (req, res) => {
-    console.log('GET / received');
     res.send('Hello from proxy server!');
 });
 

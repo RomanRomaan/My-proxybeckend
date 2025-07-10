@@ -30,3 +30,15 @@ app.get('/', (req, res) => {
     console.log('GET / received');
     res.send('Hello from proxy server!');
 });
+
+
+app.get('/', (req, res) => {
+    res.send('API is running!');
+});
+
+app.post('/api/submit', (req, res) => {
+    console.log('POST /api/submit', req.body);
+    res.json({ ok: true, body: req.body });
+});
+
+
